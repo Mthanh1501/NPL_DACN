@@ -2,10 +2,10 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
 import json, os
 from datetime import datetime, timedelta
-from nlp_parser import parse_event
+from nlp.parser import parse_event
 from threading import Lock
 
-EVENTS_FILE = 'events.json'
+EVENTS_FILE = os.path.join('data', 'events.json')
 LOCK = Lock()
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
@@ -49,20 +49,25 @@ def parse_text():
 def events():
     if request.method == 'GET':
         return jsonify(load_events())
-    data = request.json
+
     events = load_events()
+
     if request.method == 'POST':
+        data = request.json
         events.append(data)
         save_events(events)
         return jsonify({'ok': True})
+
     if request.method == 'PUT':
         # expects data contains index or id, here simple index
+        data = request.json
         idx = data.get('index')
         if idx is None:
             return jsonify({'error':'missing index'}), 400
         events[idx] = data['event']
         save_events(events)
         return jsonify({'ok': True})
+
     if request.method == 'DELETE':
         idx = int(request.args.get('index', -1))
         if 0 <= idx < len(events):
@@ -73,7 +78,8 @@ def events():
 
 @app.route('/export', methods=['GET'])
 def export_file():
-    return send_from_directory('.', EVENTS_FILE, as_attachment=True)
+    # serve the JSON file from the data directory
+    return send_from_directory('data', os.path.basename(EVENTS_FILE), as_attachment=True)
 
 @app.route('/import', methods=['POST'])
 def import_file():
