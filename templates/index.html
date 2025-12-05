@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quản lý lịch cá nhân (VN)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; }
+    textarea { width:100%; height:80px; }
+    table { width:100%; border-collapse: collapse; margin-top:10px; }
+    th,td { border:1px solid #ccc; padding:8px; text-align:left; }
+    button { margin-right:8px; }
+  </style>
+</head>
+<body>
+  <h2>Quản lý lịch cá nhân (tiếng Việt)</h2>
+  <label>Nhập câu tiếng Việt (tự do):</label><br>
+  <textarea id="inputText" placeholder="Ví dụ: nhắc tôi họp lúc 10 giờ sáng mai ở phòng 302, nhắc trước 15p"></textarea><br>
+  <button id="parseBtn">Phân tích & Thêm sự kiện</button>
+  <button id="exportBtn">Xuất file JSON</button>
+  <input type="file" id="importFile" />
+  <h3>Danh sách sự kiện</h3>
+  <input id="searchBox" placeholder="Tìm kiếm..." />
+  <table id="eventsTable">
+    <thead><tr><th>#</th><th>Sự kiện</th><th>Bắt đầu</th><th>Địa điểm</th><th>Nhắc trước (phút)</th><th>Hành động</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+<script>
+async function fetchEvents(){
+  const res = await fetch('/events');
+  return await res.json();
+}
+async function refreshTable(){
+  const data = await fetchEvents();
+  const tbody = document.querySelector('#eventsTable tbody');
+  tbody.innerHTML = '';
+  data.forEach((e,i)=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i+1}</td>
+      <td>${e.event||''}</td>
+      <td>${e.start_time||''}</td>
+      <td>${e.location||''}</td>
+      <td>${e.reminder_minutes||0}</td>
+      <td>
+        <button onclick="deleteEvent(${i})">Xóa</button>
+      </td>`;
+    tbody.appendChild(tr);
+  });
+}
+async function deleteEvent(idx){
+  await fetch('/events?index='+idx, {method:'DELETE'});
+  await refreshTable();
+}
+document.getElementById('parseBtn').onclick = async ()=>{
+  const text = document.getElementById('inputText').value;
+  if(!text.trim()) return alert('Nhập văn bản');
+  const r = await fetch('/parse', {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text})
+  });
+  const parsed = await r.json();
+  // add to events
+  await fetch('/events', {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(parsed)
+  });
+  document.getElementById('inputText').value = '';
+  await refreshTable();
+};
+
+document.getElementById('exportBtn').onclick = ()=>{
+  window.location = '/export';
+};
+
+document.getElementById('importFile').onchange = async (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const fd = new FormData();
+  fd.append('file', file);
+  await fetch('/import', {method:'POST', body: fd});
+  await refreshTable();
+};
+
+async function checkReminders(){
+  try{
+    const r = await fetch('/due_reminders');
+    const due = await r.json();
+    if(due && due.length){
+      for(const item of due){
+        const ev = item.event;
+        // create browser notification
+        if (Notification.permission === 'granted') {
+          new Notification('Nhắc: ' + (ev.event || 'Sự kiện'), {
+            body: `${ev.start_time || ''} - ${ev.location || ''}`
+          });
+        } else {
+          console.log('Remind:', ev);
+        }
+      }
+    }
+  }catch(e){ console.error(e); }
+}
+
+// request notification permission at start
+if ("Notification" in window) {
+  Notification.requestPermission();
+}
+
+// polling every 60s
+setInterval(checkReminders, 60*1000);
+window.onload = refreshTable;
+</script>
+</body>
+</html>
