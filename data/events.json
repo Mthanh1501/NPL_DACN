@@ -1,0 +1,212 @@
+[
+  {
+    "end_time": null,
+    "event": "Lên lịch phỏng vấn thực tập",
+    "location": "Phòng Nhân Sự",
+    "reminder_minutes": 20,
+    "start_time": "2025-12-12T15:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "họp với đối tác",
+    "location": "Phòng Chi Nhánh",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-08T10:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "lịch đi khám tổng quát",
+    "location": "Bệnh Viện Quốc Tế.",
+    "reminder_minutes": 0,
+    "start_time": "2026-12-05T07:30:00"
+  },
+  {
+    "end_time": null,
+    "event": "buổi họp đoàn trường",
+    "location": "",
+    "reminder_minutes": 10,
+    "start_time": "2025-12-11T13:00:00.710717"
+  },
+  {
+    "end_time": null,
+    "event": "họp lớp",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T14:00:00.719960"
+  },
+  {
+    "end_time": null,
+    "event": "lịch học tiếng Anh ngày 10/12",
+    "location": "Trung Tâm Ama.",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-10T18:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "tập gym",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T07:00:00.064606"
+  },
+  {
+    "end_time": null,
+    "event": "Hẹn gặp khách hàng",
+    "location": "Quán Highlands.",
+    "reminder_minutes": 0,
+    "start_time": "2026-12-05T13:30:00"
+  },
+  {
+    "end_time": null,
+    "event": "đi siêu thị tối nay",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T20:00:00.544663"
+  },
+  {
+    "end_time": null,
+    "event": "sự kiện: nộp bài báo cáo",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-10T23:59:00"
+  },
+  {
+    "end_time": null,
+    "event": "đi ăn cưới",
+    "location": "Nhà Hàng Riverside.",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-12T17:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "Gọi tôi dậy",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T06:00:00.068775"
+  },
+  {
+    "end_time": null,
+    "event": "Lịch họp ban quản lý",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-08T08:00:00.724340"
+  },
+  {
+    "end_time": null,
+    "event": "thanh toán tiền điện",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T19:00:00.234037"
+  },
+  {
+    "end_time": null,
+    "event": "đi đá bóng",
+    "location": "Sân Cỏ Nhân Tạo.",
+    "reminder_minutes": 0,
+    "start_time": "2026-12-03T17:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "Lịch kiểm tra sức khỏe",
+    "location": "Bệnh Viện Tỉnh.",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-15T08:30:00"
+  },
+  {
+    "end_time": null,
+    "event": "Đi uống cà phê với Lan",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-07T09:00:00.931053"
+  },
+  {
+    "end_time": null,
+    "event": "họp Zoom",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T20:00:00.874583"
+  },
+  {
+    "end_time": null,
+    "event": "Lịch đi chợ Noel",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-24T18:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "mua thuốc",
+    "location": "",
+    "reminder_minutes": 10,
+    "start_time": "2025-12-06T07:00:00.959002"
+  },
+  {
+    "end_time": null,
+    "event": "lịch xem phim",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-12T21:00:00.668438"
+  },
+  {
+    "end_time": null,
+    "event": "đi kiểm tra xe",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2026-12-04T16:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "lên lớp",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-09T07:30:00.962602"
+  },
+  {
+    "end_time": null,
+    "event": "Đi dự buổi thuyết trình",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-08T10:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "gọi điện cho mẹ",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T18:00:00.920021"
+  },
+  {
+    "end_time": null,
+    "event": "lịch ăn tối",
+    "location": "Nhà Hàng Nhật.",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-10T19:00:00.385990"
+  },
+  {
+    "end_time": null,
+    "event": "Lịch học online",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-06T14:00:00.558219"
+  },
+  {
+    "end_time": null,
+    "event": "họp tổ chuyên môn",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-09T15:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "lịch đi cà phê",
+    "location": "",
+    "reminder_minutes": 0,
+    "start_time": "2026-12-03T08:00:00"
+  },
+  {
+    "end_time": null,
+    "event": "họp báo cáo tiến độ",
+    "location": "Phòng Họp Lớn",
+    "reminder_minutes": 0,
+    "start_time": "2025-12-12T10:00:00.692176"
+  }
+]
